@@ -389,7 +389,7 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     }
 
     public void fromPointToLatLng(ReadableArray pointArray) {
-      List<LatLong> latLongList = new ArrayList<>();
+      List latLongList = new ArrayList<>();
       Projection projection = map.getProjection();
 
       for (int i = 0; i < pointArray.size(); i++) {
@@ -397,19 +397,19 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
           latLongList.add(projection.fromScreenLocation(singlePoint));
       }
 
-      return latLongList;
+      return List latLongList;
     }
 
     public void fromLatLongToPoint(ReadableArray coordinatesArray) {
-      List<Point> pointList = new ArrayList<>();
+      List pointList = new ArrayList<>();
       Projection projection = map.getProjection();
 
       for (int i = 0; i < coordinatesArray.size(); i++) {
           ReadableMap latLng = coordinatesArray.getMap(i);
           pointList.add(projection.toScreenLocation(latLng));
       }
-      
-      return pointList;
+
+      return List pointList;
     }
 
     public void setShowsUserLocation(boolean showUserLocation) {
