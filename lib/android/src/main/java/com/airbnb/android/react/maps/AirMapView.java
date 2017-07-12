@@ -397,10 +397,13 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
           Integer x = screenPoint.getInt("x");
           Integer y = screenPoint.getInt("y");
           LatLng coords = this.map.getProjection().fromScreenLocation(new Point(x, y));
-          latLongList.add(coords);
+          WritableMap event = makeClickEventData(coords);
+          manager.pushEvent(context, this, "fromPointToLatLng", event);
+          // latLongList.add(coords);
       }
 
-      return latLongList;
+
+      // return latLongList;
     }
 
     public List fromLatLongToPoint(ReadableArray coordinatesArray) {
