@@ -388,7 +388,7 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
       map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
-    public void fromPointToLatLng(ReadableArray pointArray) {
+    public List fromPointToLatLng(ReadableArray pointArray) {
       List latLongList = new ArrayList<>();
       Projection projection = map.getProjection();
 
@@ -397,10 +397,10 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
           latLongList.add(projection.fromScreenLocation(singlePoint));
       }
 
-      return List latLongList;
+      return latLongList;
     }
 
-    public void fromLatLongToPoint(ReadableArray coordinatesArray) {
+    public List fromLatLongToPoint(ReadableArray coordinatesArray) {
       List pointList = new ArrayList<>();
       Projection projection = map.getProjection();
 
@@ -409,7 +409,7 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
           pointList.add(projection.toScreenLocation(latLng));
       }
 
-      return List pointList;
+      return pointList;
     }
 
     public void setShowsUserLocation(boolean showUserLocation) {
