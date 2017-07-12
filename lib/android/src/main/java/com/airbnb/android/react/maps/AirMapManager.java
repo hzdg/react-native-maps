@@ -179,6 +179,11 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
         view.map.getUiSettings().setTiltGesturesEnabled(pitchEnabled);
     }
 
+    @ReactProp(name = "bearing")
+    public void setBearing(AirMapView view, float bearing) {
+      view.setBearing(bearing);
+    }
+
     @Override
     public void receiveCommand(AirMapView view, int commandId, @Nullable ReadableArray args) {
         Integer duration;
