@@ -389,12 +389,11 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     }
 
     public void fromPointToLatLng(List<Point> pointList) {
-      List<Point> pointList = new ArrayList<>();
       List<LatLong> latLongList = new ArrayList<>();
       Projection projection = map.getProjection();
-      for( Point fromPointToLatLng : pointList ) {
+      for( Point singlePoint : pointList ) {
         try {
-          latLongList.add(projection.fromScreenLocation(fromPointToLatLng));
+          latLongList.add(projection.fromScreenLocation(singlePoint));
         } catch (NoSuchMethodException e) {
           e.printStackTrace();
         }
@@ -404,11 +403,10 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
 
     public void fromLatLongToPoint(List<LatLong> latLongList) {
       List<Point> pointList = new ArrayList<>();
-      List<LatLong> latLongList = new ArrayList<>();
       Projection projection = map.getProjection();
-      for ( Point fromLatLongToPoint : latLongList) {
+      for ( LatLong singleLatLong : latLongList) {
         try {
-          pointList.add(projection.toScreenLocation(fromLatLongToPoint));
+          pointList.add(projection.toScreenLocation(singleLatLong));
         } catch (NoSuchMethodException e) {
           e.printStackTrace();
         }
