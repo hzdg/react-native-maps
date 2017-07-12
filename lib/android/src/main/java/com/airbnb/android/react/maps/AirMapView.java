@@ -394,8 +394,8 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
 
       for (int i = 0; i < pointsArray.size(); i++) {
           ReadableMap screenPoint = pointsArray.getMap(i);
-          Int x = screenPoint.getInt("x");
-          Int y = screenPoint.getInt("y");
+          Integer x = screenPoint.getInt("x");
+          Integer y = screenPoint.getInt("y");
           LatLng coords = this.map.getProjection().fromScreenLocation(new Point(x, y));
           latLongList.add(coords);
       }
