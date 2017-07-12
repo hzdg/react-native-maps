@@ -229,11 +229,11 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
                 view.fitToCoordinates(args.getArray(0), args.getMap(1), args.getBoolean(2));
                 break;
             case FROM_LATLONG_TO_POINT:
-                view.fromLatLongToPoint(args.getMap(0));
+                view.fromLatLongToPoint(args.getArray(0));
                 break;
 
             case FROM_POINT_TO_LATLONG:
-                view.fromPointToLatLng(args.getMap(0));
+                view.fromPointToLatLng(args.getArray(0));
                 break;
         }
     }

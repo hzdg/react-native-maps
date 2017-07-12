@@ -388,29 +388,27 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
       map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
-    public void fromPointToLatLng(ReadableMap pointList) {
+    public void fromPointToLatLng(ReadableArray pointArray) {
       List<LatLong> latLongList = new ArrayList<>();
       Projection projection = map.getProjection();
-      for( Point singlePoint : pointList ) {
-        try {
+
+      for (int i = 0; i < pointArray.size(); i++) {
+          ReadableMap singlePoint = pointArray.getMap(i);
           latLongList.add(projection.fromScreenLocation(singlePoint));
-        } catch (NoSuchMethodException e) {
-          e.printStackTrace();
-        }
       }
+
       return latLongList;
     }
 
-    public void fromLatLongToPoint(ReadableMap latLongList) {
+    public void fromLatLongToPoint(ReadableArray coordinatesArray) {
       List<Point> pointList = new ArrayList<>();
       Projection projection = map.getProjection();
-      for ( LatLong singleLatLong : latLongList) {
-        try {
-          pointList.add(projection.toScreenLocation(singleLatLong));
-        } catch (NoSuchMethodException e) {
-          e.printStackTrace();
-        }
+
+      for (int i = 0; i < coordinatesArray.size(); i++) {
+          ReadableMap latLng = coordinatesArray.getMap(i);
+          pointList.add(projection.toScreenLocation(latLng));
       }
+      
       return pointList;
     }
 
