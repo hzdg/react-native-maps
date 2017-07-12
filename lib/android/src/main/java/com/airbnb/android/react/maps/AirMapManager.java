@@ -34,6 +34,8 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
     private static final int FIT_TO_ELEMENTS = 3;
     private static final int FIT_TO_SUPPLIED_MARKERS = 4;
     private static final int FIT_TO_COORDINATES = 5;
+    private static final int FROM_POINT_TO_LATLONG = 6;
+    private static final int FROM_LATLONG_TO_POINT = 7;
 
     private final Map<String, Integer> MAP_TYPES = MapBuilder.of(
             "standard", GoogleMap.MAP_TYPE_NORMAL,
@@ -225,6 +227,13 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
                 break;
             case FIT_TO_COORDINATES:
                 view.fitToCoordinates(args.getArray(0), args.getMap(1), args.getBoolean(2));
+                break;
+            case FROM_LATLONG_TO_POINT:
+                view.fromLatLongToPoint(args.getArray(0));
+                break;
+
+            case FROM_POINT_TO_LATLONG:
+                view.fromPointToLatLng(args.getArray(0));
                 break;
         }
     }
