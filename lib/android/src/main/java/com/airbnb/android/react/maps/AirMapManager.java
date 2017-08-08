@@ -190,7 +190,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
 
   @ReactProp(name = "bearing")
   public void setBearing(AirMapView view, float bearing) {
-    view.map.setBearing(bearing);
+    view.setBearing(bearing);
   }
 
   @Override
