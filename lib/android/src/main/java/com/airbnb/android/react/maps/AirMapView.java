@@ -384,6 +384,15 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     }
   }
 
+  public void setBearing(float bearing) {
+    CameraPosition cameraPosition = new CameraPosition.Builder()
+      .target(map.getCameraPosition().target)
+      .zoom(map.getCameraPosition().zoom)
+      .bearing(bearing)
+      .build();
+    map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+  }
+
   public void setShowsUserLocation(boolean showUserLocation) {
     this.showUserLocation = showUserLocation; // hold onto this for lifecycle handling
     if (hasPermissions()) {
@@ -733,7 +742,7 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
           eventDispatcher.dispatchEvent(new RegionChangeEvent(getId(), bounds, center, true));
         }
       }
-      
+
       timerHandler.postDelayed(this, 100);
     }
   };

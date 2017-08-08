@@ -188,6 +188,11 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
     view.map.setMaxZoomPreference(maxZoomLevel);
   }
 
+  @ReactProp(name = "bearing")
+  public void setBearing(AirMapView view, float bearing) {
+    view.map.setBearing(bearing);
+  }
+
   @Override
   public void receiveCommand(AirMapView view, int commandId, @Nullable ReadableArray args) {
     Integer duration;
