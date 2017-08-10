@@ -40,6 +40,7 @@
 @property (nonatomic, assign) BOOL pitchEnabled;
 @property (nonatomic, assign) BOOL showsUserLocation;
 @property (nonatomic, assign) BOOL showsMyLocationButton;
+@property (nonatomic, assign) float bearing;
 
 - (void)didFinishTileRendering;
 - (BOOL)didTapMarker:(GMSMarker *)marker;

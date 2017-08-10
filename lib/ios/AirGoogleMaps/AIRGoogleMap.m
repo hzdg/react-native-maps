@@ -312,6 +312,10 @@ id regionAsJSON(MKCoordinateRegion region) {
   [self setMinZoom:self.minZoom maxZoom:maxZoomLevel ];
 }
 
+- (void)setBearing:(float)bearing {
+    [self animateToBearing:bearing ];
+}
+
 + (MKCoordinateRegion) makeGMSCameraPositionFromMap:(GMSMapView *)map andGMSCameraPosition:(GMSCameraPosition *)position {
   // solution from here: http://stackoverflow.com/a/16587735/1102215
   GMSVisibleRegion visibleRegion = map.projection.visibleRegion;
