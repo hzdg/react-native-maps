@@ -578,6 +578,21 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     }
   }
 
+  public void setMapBoundries(ReadableArray coordinatesArray) {
+    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+
+    for (int i = 0; i < coordinatesArray.size(); i++) {
+      ReadableMap latLng = coordinatesArray.getMap(i);
+      Double lat = latLng.getDouble("latitude");
+      Double lng = latLng.getDouble("longitude");
+      builder.include(new LatLng(lat, lng));
+    }
+
+    LatLngBounds bounds = builder.build();
+
+    map.setLatLngBoundsForCameraTarget(bounds);
+  }
+
   public void fitToElements(boolean animated) {
     LatLngBounds.Builder builder = new LatLngBounds.Builder();
 

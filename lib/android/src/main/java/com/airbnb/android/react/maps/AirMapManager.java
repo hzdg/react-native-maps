@@ -232,8 +232,13 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
       case FIT_TO_SUPPLIED_MARKERS:
         view.fitToSuppliedMarkers(args.getArray(0), args.getBoolean(1));
         break;
+
       case FIT_TO_COORDINATES:
         view.fitToCoordinates(args.getArray(0), args.getMap(1), args.getBoolean(2));
+        break;
+
+      case SET_MAP_BOUNDRIES:
+        view.setMapBoundries(args.getArray(0));
         break;
     }
   }
@@ -270,6 +275,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
         "fitToElements", FIT_TO_ELEMENTS,
         "fitToSuppliedMarkers", FIT_TO_SUPPLIED_MARKERS,
         "fitToCoordinates", FIT_TO_COORDINATES
+        "setMapBoundries", SET_MAP_BOUNDRIES,
     );
   }
 
