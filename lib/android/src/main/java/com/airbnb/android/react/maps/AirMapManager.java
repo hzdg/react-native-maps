@@ -274,8 +274,8 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
         "animateToCoordinate", ANIMATE_TO_COORDINATE,
         "fitToElements", FIT_TO_ELEMENTS,
         "fitToSuppliedMarkers", FIT_TO_SUPPLIED_MARKERS,
-        "fitToCoordinates", FIT_TO_COORDINATES
-        "setMapBoundries", SET_MAP_BOUNDRIES,
+        "fitToCoordinates", FIT_TO_COORDINATES,
+        "setMapBoundries", SET_MAP_BOUNDRIES
     );
   }
 
