@@ -590,7 +590,9 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
 
     LatLngBounds bounds = builder.build();
 
-    map.setLatLngBoundsForCameraTarget(bounds);
+    if (map != null) {
+      map.setLatLngBoundsForCameraTarget(bounds);
+    }
   }
 
   public void fitToElements(boolean animated) {
