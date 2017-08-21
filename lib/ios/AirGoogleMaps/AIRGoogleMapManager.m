@@ -223,8 +223,9 @@ RCT_EXPORT_METHOD(takeSnapshot:(nonnull NSNumber *)reactTag
   }];
 }
 
-RCT_EXPORT_METHOD(setMapBoundries:(nonnull NSNumber *)reactTag
-                  coordinates:(nonnull NSArray<AIRMapCoordinate *> *)coordinates)
+RCT_EXPORT_METHOD(setMapBoundaries:(nonnull NSNumber *)reactTag
+                  northEast:(CLLocationCoordinate2D)northEast
+                  southWest:(CLLocationCoordinate2D)southWest)
 {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
     id view = viewRegistry[reactTag];
@@ -233,10 +234,7 @@ RCT_EXPORT_METHOD(setMapBoundries:(nonnull NSNumber *)reactTag
     } else {
       AIRGoogleMap *mapView = (AIRGoogleMap *)view;
 
-
-      CLLocationCoordinate2D northeast = coordinates.firstObject.coordinate;
-      CLLocationCoordinate2D southwest = coordinates.lastObject.coordinate;
-      GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:northeast coordinate:southwest];
+      GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:northEast coordinate:southWest];
 
       mapView.cameraTargetBounds = bounds;
     }

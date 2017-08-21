@@ -32,7 +32,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
   private static final int FIT_TO_ELEMENTS = 3;
   private static final int FIT_TO_SUPPLIED_MARKERS = 4;
   private static final int FIT_TO_COORDINATES = 5;
-  private static final int SET_MAP_BOUNDRIES = 6;
+  private static final int SET_MAP_BOUNDARIES = 6;
 
   private final Map<String, Integer> MAP_TYPES = MapBuilder.of(
       "standard", GoogleMap.MAP_TYPE_NORMAL,
@@ -243,8 +243,8 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
         view.fitToCoordinates(args.getArray(0), args.getMap(1), args.getBoolean(2));
         break;
 
-      case SET_MAP_BOUNDRIES:
-        view.setMapBoundries(args.getArray(0));
+      case SET_MAP_BOUNDARIES:
+        view.setMapBoundaries(args.getMap(0), args.getMap(1));
         break;
     }
   }
@@ -281,7 +281,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
         "fitToElements", FIT_TO_ELEMENTS,
         "fitToSuppliedMarkers", FIT_TO_SUPPLIED_MARKERS,
         "fitToCoordinates", FIT_TO_COORDINATES,
-        "setMapBoundries", SET_MAP_BOUNDRIES
+        "setMapBoundaries", SET_MAP_BOUNDARIES
     );
   }
 

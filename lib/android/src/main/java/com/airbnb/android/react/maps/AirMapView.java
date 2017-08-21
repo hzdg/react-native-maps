@@ -586,15 +586,16 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     }
   }
 
-  public void setMapBoundries(ReadableArray coordinatesArray) {
+  public void setMapBoundaries(ReadableMap northEast, ReadableMap southWest) {
     LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
-    for (int i = 0; i < coordinatesArray.size(); i++) {
-      ReadableMap latLng = coordinatesArray.getMap(i);
-      Double lat = latLng.getDouble("latitude");
-      Double lng = latLng.getDouble("longitude");
-      builder.include(new LatLng(lat, lng));
-    }
+    Double latNE = northEast.getDouble("latitude");
+    Double lngNE = northEast.getDouble("longitude");
+    builder.include(new LatLng(latNE, lngNE));
+
+    Double latSW = southWest.getDouble("latitude");
+    Double lngSW = southWest.getDouble("longitude");
+    builder.include(new LatLng(latSW, lngSW));
 
     LatLngBounds bounds = builder.build();
 
